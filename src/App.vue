@@ -51,7 +51,7 @@
         @Action('getSources')
         private getVideoSources: any;
 
-        private endpoint: string = 'http://api.chernobyl.download:3000';
+        private endpoint: string = 'https://api.chernobyl.download:3000';
 
         public async mounted() {
             if (md.phone()) {
