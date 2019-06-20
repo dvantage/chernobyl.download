@@ -4,7 +4,9 @@
         <div id="app">
             <!-- Header -->
             <header id="header">
-                <img class="logo" src="./assets/images/logo.jpg" alt=""/>
+                <a href="/">
+                    <img class="logo" src="./assets/images/logo.jpg" alt=""/>
+                </a>
             </header>
             <!-- Thumbnail -->
             <section id="thumbnails">
