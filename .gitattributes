@@ -1,0 +1,5 @@
+# Set language
+*.js linguist-language=TypeScript
+
+dist/* linguist-vendored
+public/* linguist-vendored
