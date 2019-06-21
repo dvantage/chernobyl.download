@@ -1,5 +1,7 @@
 # Set language
 *.js linguist-language=TypeScript
+*.vue linguist-language=TypeScript
 
+src/assets/* linguist-vendored
 dist/* linguist-vendored
 public/* linguist-vendored
