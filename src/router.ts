@@ -7,19 +7,20 @@ import PlayerSection from './views/PlayerSection.vue';
 Vue.use(Router);
 
 export default new Router({
-    mode:   'history',
+    mode:            'history',
     // base:   '/',
-    routes: [
+    linkActiveClass: 'active',
+    routes:          [
         {
             path:     '/',
             redirect: '/episode1',
         },
         {
-            path:                '/episode1',
-            name:                'episode1',
-            component:           PlayerSection,
-            props:               {episode: 1},
-            meta:                '0',
+            path:      '/episode1',
+            name:      'episode1',
+            component: PlayerSection,
+            props:     {episode: 1},
+            meta:      '0',
         },
         {
             path:      '/episode2',
