@@ -19,7 +19,6 @@
     import {pre} from '@/helpers';
 
     const Plyr = require('plyr');
-    import 'plyr/dist/plyr.css';
 
     const md = new MobileDetect(window.navigator.userAgent);
 
