@@ -42,6 +42,8 @@
     import {IVideoSource} from '@/interfaces';
     import {pre} from '@/helpers';
 
+    import '@/assets/css/main.css';
+
     const md = new MobileDetect(window.navigator.userAgent);
 
     @Component

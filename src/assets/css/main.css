@@ -867,7 +867,7 @@ ul.icons li .icon:before {
 
 body.fullscreen #app {
     visibility: hidden;
-    right: -22.5em;
+    right: -25.5em;
 }
 
 body.is-preload-1 #app {
