@@ -37,6 +37,8 @@
 
         private player: any;
 
+        private defaultQuality: number = 1080;
+
         private defaultTitle: string = 'Чернобыль';
 
         private isMobileDevice: boolean = false;
@@ -132,10 +134,17 @@
                 controls: playerControls,
             });
 
+            this.player.config.quality.default = this.defaultQuality;
+
             this.player.source = {
                 type:    'video',
                 title:   'Example title',
                 sources: [
+                    {
+                        src:  currentSource['480'],
+                        type: 'video/webm',
+                        size: 480,
+                    },
                     {
                         src:  currentSource['720'],
                         type: 'video/webm',
