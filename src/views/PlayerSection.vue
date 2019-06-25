@@ -43,6 +43,10 @@
 
         private isMobileDevice: boolean = false;
 
+        private isVerticalOrientation: boolean = false;
+
+        private orientation?: any = null;
+
         private playerControlsDesktop: string[] = [
             'play-large',
             'play',
@@ -73,7 +77,11 @@
             'fullscreen',
         ];
 
-        public mounted() {
+        public created(): void {
+            window.addEventListener('deviceorientation', (event) => (this.orientation = event));
+        }
+
+        public mounted(): void {
 
             EventBus.$on('actionPlay', () => {
                 this.onUrlChange(this.$route);
@@ -93,13 +101,20 @@
 
         }
 
+        @Watch('orientation')
+        private gyroscopeControl(event: DeviceOrientationEvent) {
+            if (window.innerHeight > window.innerWidth) {
+                this.isVerticalOrientation = true;
+            }
+        }
+
         private onClose(): void {
 
             if (!this.isMobileDevice) {
                 return;
             }
 
-            if (window.innerHeight > window.innerWidth) {
+            if (this.isVerticalOrientation) {
                 this.player.stop();
             }
         }
@@ -163,7 +178,7 @@
                 poster:  currentSource.poster,
             };
 
-            if (this.isMobileDevice) {
+            if (this.isMobileDevice && this.isVerticalOrientation) {
                 this.player.play();
             }
 
