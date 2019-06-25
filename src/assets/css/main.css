@@ -1419,6 +1419,10 @@ body.is-preload-2 #viewer .slide {
     max-width: 177vh;
 }
 
+.plyr__preview-scrubbing {
+    display: none;
+}
+
 .fullscreen .plyr {
     height: auto;
     flex: auto;
@@ -1435,6 +1439,14 @@ body.is-preload-2 #viewer .slide {
         position: relative;
     }
 }
+
+
+@media screen and (max-height: 830px) and (max-width: 1680px) {
+    #footer {
+        position: relative;
+    }
+}
+
 
 @media screen and (max-width: 1680px) {
     #header {

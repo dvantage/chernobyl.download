@@ -122,16 +122,20 @@
 
             let playerControls = this.playerControlsDesktop;
 
-            if (this.isMobileDevice === true) {
+            if (this.isMobileDevice) {
                 playerControls = this.playerControlsMobile;
             }
 
             this.player = new Plyr('#player', {
-                title:    'Example title',
-                urls:     {
+                title:             'Example title',
+                urls:              {
                     download: currentSource.download,
                 },
-                controls: playerControls,
+                previewThumbnails: {
+                    enabled: true,
+                    src:     [currentSource.thumbnailsVtt],
+                },
+                controls:          playerControls,
             });
 
             this.player.config.quality.default = this.defaultQuality;
@@ -158,6 +162,11 @@
                 ],
                 poster:  currentSource.poster,
             };
+
+            if (this.isMobileDevice) {
+                this.player.play();
+            }
+
             document.title = `«${currentSource.title}» - ${this.defaultTitle}`;
             window.player = this.player;
 
@@ -170,31 +179,11 @@
                 body.classList.add('fullscreen');
             }
 
-            this.player.source = {
-                type:    'video',
-                title:   'Example title',
-                sources: [
-                    {
-                        src:  this.stream['480'],
-                        type: 'video/webm',
-                        size: 480,
-                    },
-                    {
-                        src:  this.stream['720'],
-                        type: 'video/webm',
-                        size: 720,
-                    },
-                    {
-                        src:  this.stream['1080'],
-                        type: 'video/webm',
-                        size: 1080,
-                    },
-                ],
-                poster:  this.stream.poster,
-            };
-            this.player.config.urls.download = this.stream.download;
-            // this.player.play();
-            document.title = `«${this.stream.title}» - ${this.defaultTitle}`;
+            if (typeof this.player === 'object') {
+                this.player.destroy();
+            }
+
+            this.playerInit(this.stream);
         }
     }
 </script>

@@ -14,6 +14,8 @@ export interface IVideoSource {
     download?: string;
     episode?: number;
     title?: string;
+    thumbnails?: string;
+    thumbnailsVtt?: string;
 }
 
 
